@@ -1,0 +1,111 @@
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner" style="height: 400px; width: auto;">
+    <div class="carousel-item active" style="height: 400px; background-color:black;">
+      <img src="./assets/HomePage/pic3.jpg"
+        alt="sale1">
+    </div>
+    <div class="carousel-item" style="height: 400px; background-color:black;">
+      <img src="./assets/HomePage/pic1.jpg" alt="sale2">
+    </div>
+    <div class="carousel-item" style="height: 400px; background-color:black">
+      <img src="./assets/HomePage/pic2.jpg" alt="sale3">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon" style="color:black"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mx-auto my-5 d-flex" *ngFor="let product of productdetails">
+      <div class="card full shadow">
+        <img class="card-img-top" src="{{product. productimage1}}" alt="product"
+          width="250px" height="200px">
+        <div class="card-body">
+          <div class="card-text">
+            <h3 class="card-title">{{ product.productname }}</h3>
+            <h4 style="color: rgb(30, 99, 163)"> Price : {{ product.productprice }} &#8377;</h4>
+            <h6 style="color: grey "> Description: {{ product.productdescription }}</h6>
+            <!--<h5 style = "color: red;"> Product Quantity : {{ product.productquantity}} pcs</h5>-->&nbsp;<br><br>
+            <button class="btn1 btn-warning"
+              (click)=openModal(product.productid,product.productname,product.productprice,product.productquantity,product.productdescription,product.productbrand,product.productimage1,product.retailerid,product.categoryid)
+              data-toggle="modal" data-target="#exampleModal"> View Product </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Product Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="width: 40%; float:left ; height: 500px;">
+          <div class="containernew">
+            <!-- <img src="{{prod. productimage1}}"> -->
+            <img src="{{prod. productimage1}}" alt="">
+          </div>
+        </div>
+        <div style="width: 60%; float:right">
+          <h2>{{prod.productname}}</h2>
+          <br>
+          <h5>Description : {{prod.productdescription}}</h5>
+          <br>
+          <h4>Price : <h3 style="color:red">{{prod.productprice}} &#8377;</h3>
+          </h4>
+          <br>
+          <h4>Quantity in stock : <h3 style="color:red">{{prod.productquantity}}</h3>
+          </h4>
+          <br>
+          <h4>Brand :{{prod.productbrand}}</h4>
+          <br>
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+            class="minus btn btn-danger"><i class="fa fa-minus"></i></button>
+          <input style="width: 5em" min="0" #quantity id="myquantity" name="quantity" value="1" type="number">
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn btn-success"><i
+              class="fa fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" style="color:white; background-color: black;"
+          (click)="addtocompare(prod.productid)" data-dismiss="modal">Compare</button>
+
+          <button type="button" class="btn" style="color:white; background-color: black;"
+          (click)="addtowishlist(prod.productid)" data-dismiss="modal">Wishlist</button>
+
+        <button type="button" class="btn" style="color:white; background-color: black;"
+          (click)="addtocart(prod.productid,quantity.value)" data-dismiss="modal">Add to cart</button>
+          
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<app-footer></app-footer>

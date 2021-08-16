@@ -1,0 +1,138 @@
+<section class="Form my-4 mx-5">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-5">
+                <img src="./assets/Login/userregister1.jpg" class="img-fluid">
+            </div>
+            <div class="col-lg-7 px-5 pt-5">
+                <h1>Online Shopping App</h1>
+                <h4>Create your account</h4>
+                <br><br>
+                <form [formGroup] = "registerForm" (ngSubmit) = "doRegister()">
+                    <div class="form-row">
+                        <div class="form-group col-lg-7">
+                            <label> Email</label>
+                            <input type = "text" class="form-control" formControlName = "useremail">
+                            <div *ngIf = "g.useremail.errors && g.useremail.touched" class="text-danger">
+                                <div *ngIf = "g.useremail.errors.required">Email is required</div>
+                                <div *ngIf = "g.useremail.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="from-group col-lg-7">
+                            <label> Password</label>
+                            <input type = "password" class="form-control" formControlName = "userpassword">
+                            <div *ngIf="g.userpassword.errors && g.userpassword.touched" class="text-danger">
+                                <div *ngIf = "g.userpassword.errors.required">Password is required</div>
+                                <div *ngIf = "g.userpassword.errors.minlength">Password must be of minimum 6 characters</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="from-group col-lg-7">
+                            <label> Confirm Password </label>
+                            <input type = "password" class="form-control" formControlName = "confuserpassword">
+                            <div *ngIf="g.confuserpassword.errors && g.confuserpassword.touched" class="text-danger">
+                                <div *ngIf = "g.confuserpassword.errors.required">Confirm Password is required</div>
+                                <div *ngIf = "g.confuserpassword.errors.mustmatch">Password must match</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-7">
+                            <label> Name</label>
+                            <input type = "text" class="form-control" formControlName = "username" >
+                            <div *ngIf = "g.username.errors && g.username.touched" class="text-danger">
+                                <div *ngIf = "g.username.errors.required">Username is required</div>
+                                <div *ngIf = "g.username.errors.minlength">Username should be of minimum length 5</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-7">
+                            <label> Phone No</label>
+                            <input type = "text" class="form-control" formControlName = "userphone" >
+                            <div *ngIf = "g.userphone.errors && g.userphone.touched" class="text-danger">
+                                <div *ngIf = "g.userphone.errors.required">Phone number is required</div>
+                                <div *ngIf = "g.userphone.errors.pattern">Phone number does not match the pattern</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-7">
+                            <label> Apartment</label>
+                            <input type = "text" class="form-control" formControlName = "userapartment" >
+                            <div *ngIf = "g.userapartment.errors && g.userapartment.touched" class="text-danger">
+                                <div *ngIf = "g.userapartment.errors.required">Apartment is required</div>
+                                <div *ngIf = "g.userapartment.errors.minlength">Apartment should be of min length 5</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-7">
+                            <label> Street </label>
+                            <input type = "text" class="form-control" formControlName = "userstreet" >
+                            <div *ngIf = "g.userstreet.errors && g.userstreet.touched" class="text-danger">
+                                <div *ngIf = "g.userstreet.errors.required">Street is required</div>
+                                <div *ngIf = "g.userstreet.errors.minlength">Street should be of min length 5</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-7">
+                            <label> Town</label>
+                            <input type = "text" class="form-control" formControlName = "usertown" >
+                            <div *ngIf = "g.usertown.errors && g.usertown.touched" class="text-danger">
+                                <div *ngIf = "g.usertown.errors.required">Town is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-7">
+                            <label> State </label>
+                            <input type = "text" class="form-control" formControlName = "userstate" >
+                            <div *ngIf = "g.userstate.errors && g.userstate.touched" class="text-danger">
+                                <div *ngIf = "g.userstate.errors.required">State is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-7">
+                            <label> Pincode </label>
+                            <input type = "text" class="form-control" formControlName = "userpincode" >
+                            <div *ngIf = "g.userpincode.errors && g.userpincode.touched" class="text-danger">
+                                <div *ngIf = "g.userpincode.errors.required">Pincode is required</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-7">
+                            <label> Country </label>
+                            <input type = "text" class="form-control" formControlName = "usercountry" >
+                            <div *ngIf = "g.usercountry.errors && g.usercountry.touched" class="text-danger">
+                                <div *ngIf = "g.usercountry.errors.required">Country is required</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                         <div class="form-row">
+                        <div class="col-lg-7">
+                            <button class="btn1 mt-3 mb-5">Register</button>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <a routerLink ='/forgotpassword'>Forgot Password</a>
+                            <p>Already have an account ? <a href="/userlogin"> Login </a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
+
+<!--phone, apartment, street,town, state, pincode, country-->

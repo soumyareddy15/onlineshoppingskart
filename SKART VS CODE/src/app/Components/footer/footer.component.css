@@ -1,0 +1,8 @@
+.bg-4 { 
+    background-color: rgb(198, 153, 207); /* Black Gray */
+    color: #fff;
+  }
+  li{
+      display: inline;
+      margin: 1px 3px;
+  }

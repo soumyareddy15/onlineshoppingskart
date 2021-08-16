@@ -1,0 +1,50 @@
+<section >
+    <div class="container">
+        <h2>Welcome {{retaileremail}}!</h2>
+        <br>
+        <div class="row no-gutters">
+            <div class = "col">
+                <button class="btn1 mt-4 mb-4" (click)="gotoDetails()">Retailer Details</button>
+            </div>
+            <div class = "col">
+                <button class="btn1 mt-4 mb-4" (click)="gotoChange()">Change Password</button>
+            </div>
+            <div class = "col">
+                <button class="btn1 mt-4 mb-4" (click) = "gotoProduct()">Upload Product</button>
+            </div>
+        </div>
+    </div>
+  </section>
+  <br><br>
+  <section>
+      <div class="container">
+              <div class="col">
+                <table id="ret">
+                    <thead>
+                        <tr>
+                            
+                            <th>Product Name</th>
+                            <th>Brand</th>
+                            <th>Customer Email</th>
+                            <th>Product Price</th>
+                            <th>Order Quantity</th>
+                            <th>Retailer Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let r of retailerdetails">
+                        <tr>
+                            
+                            <td>{{r.productname}}</td>
+                            <td>{{r.productbrand}}</td>
+                            <td>{{r.useremail}}</td>
+                            <td>&#8377;{{r.productprice}}</td>
+                            <td>{{r.orderquantity}}</td>
+                            <td>&#8377;{{r.RetailerRevenue}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+      </div>
+  </section>
+  <app-footer></app-footer>
+  

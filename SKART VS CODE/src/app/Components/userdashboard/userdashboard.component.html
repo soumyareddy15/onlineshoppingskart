@@ -1,0 +1,28 @@
+<br><br>
+<html>
+    
+    <br><br>
+    <table id="users">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product Name</th>
+                <th>Product Brand</th>
+                <th>Product Price</th>
+                <th>Order Quantity</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let u of userdetails">
+
+            <tr>
+                <td>{{u.orderid}}</td>
+                <td>{{u.productname}}</td>
+                <td>{{u.productbrand}}</td>
+                <td>{{u.productprice}}</td>
+                <td>{{u.orderquantity}}</td>
+                <td>{{u.orderdate}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </html>

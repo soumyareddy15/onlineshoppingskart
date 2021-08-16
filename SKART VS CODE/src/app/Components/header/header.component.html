@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-md navbar-light">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <figure>
+        <a href="#" class="navbar-brand">
+            &nbsp; <img src="./assets/HomePage/logo.jpg" height="60" width="100" alt="OS">
+        </a>
+        <figcaption><p style="text-align:center"><b> SKART</b></p></figcaption>
+      </figure>
+      
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <div class="navbar-nav">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;
+            <a href="#" class="nav-item active">Home</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;
+
+            <!--Dropdown-->
+
+            <!--<div class="dropdown">
+                    <a>Filter</a>
+                    <div class="dropdown-content">
+                      <a href="#">Category Name</a>
+                      <a href="#">Price</a>
+                    </div>
+                  </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+            <div class="dropdown">
+                <a routerLink='/filterbyprice'>Filter</a>
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;
+
+            <a routerLink="/searchproduct" class="nav-item ">
+                Search</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;
+                 <a routerLink='/compare' *ngIf="userlogged" class="nav-item ">
+                Compare</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a routerLink='/wishlist' *ngIf="userlogged" class="nav-item ">
+                    Wishlist</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a routerLink='/cartdashboard' *ngIf="userlogged" class="nav-item "><i class="fa fa-shopping-cart"></i>
+                Cart</a>
+
+            <div class="dropdown" *ngIf="userlogged==false">
+                <a>Login</a>
+                <div class="dropdown-content">
+                    <a routerLink="/userlogin">User</a>
+                    <a routerLink="/retailerlogin">Retailer</a>
+                    <a routerLink="/adminlogin">Admin</a>
+                </div>
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </div>
+        <!--<form class="form-inline" >
+                <div class="input-group">                    
+                    <input type="text" size="55" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary" ><i class="fa fa-search" ></i></button>
+                    </div>
+                </div>
+            </form>-->
+
+
+        <!--After login ..Logout will be here-->
+        <!--<div class = "navbar-nav">
+                <li *ngIf = "userlogged==true">
+                    <h6 style="color:white">Hello , {{name}}</h6>
+                </li>
+            </div>-->
+        <div class="navbar-nav ">
+            <li *ngIf="userlogged==true" class="nav-item">
+                <h6 style="color:white">Hello , {{name}}</h6>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!--<a href="#" class="nav-item nav-link">Logout</a>-->
+            <li *ngIf="userprofile==true" class="nav-item">
+                <button class="btn btn-warning" (click)="userprofilebut()">Profile</button>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <li *ngIf="userprofile==true" class="nav-item">
+                <button class="btn btn-warning" (click)="userorders()">Orders</button>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <li *ngIf="adminlogged==true" class="nav-item">
+                <button class="btn btn-warning" (click)="admindash()">DashBoard</button>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <li *ngIf="retailerlogged==true" class="nav-item">
+                <button class="btn btn-warning" (click)="retailerdash()">DashBoard</button>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            
+            <li *ngIf="userlogged==true" class="nav-item">
+                <button class="btn btn-danger" (click)="logoff()">Logout</button>
+            </li>
+            
+        </div>
+    </div>
+</nav>
